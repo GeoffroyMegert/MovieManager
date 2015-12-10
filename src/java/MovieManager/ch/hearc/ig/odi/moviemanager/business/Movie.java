@@ -2,35 +2,88 @@ package MovieManager.ch.hearc.ig.odi.moviemanager.business;
 
 import java.util.*;
 
+/**
+ * Classe permettant la gestion de films.
+ *
+ * @author Geoffroy Megert <geoffroy.megert@he-arc.ch>
+ */
 public class Movie {
 
-	private Map<Long, Person> people;
-	private Long id;
-	private String name;
-	private String producer;
+    /** La liste des personnes ayant regardées ce film. */
+    private Map<Long, Person> people;
+    /** L'identifiant unique du film. */
+    private Long id;
+    /** Le nom du film. */
+    private String name;
+    /** Le producteur du film. */
+    private String producer;
 
-	public Long getId() {
-		return this.id;
-	}
+    /**
+     * Constructeur paramétré pour les films.
+     * 
+     * @param id L'identifiant unique du film.
+     * @param name Le nom du film.
+     * @param producer Le producteur du film.
+     */
+    public Movie(final Long id, final String name, final String producer) {
+        this.id = id;
+        this.name = name;
+        this.producer = producer;
+        this.people = new LinkedHashMap<>();
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    /**
+     * Permet d'obtenir l'identifiant de ce film.
+     * 
+     * @return L'identifiant de ce film.
+     */
+    public Long getId() {
+        return this.id;
+    }
 
-	public String getName() {
-		return this.name;
-	}
+    /**
+     * Modifie l'identifiant de ce film par celui passé en paramètre.
+     * 
+     * @param id Le nouvel identifiant de ce film.
+     */
+    public void setId(final Long id) {
+        this.id = id;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    /**
+     * Permet d'obtenir le nom de ce film.
+     * 
+     * @return Le nom de ce film.
+     */
+    public String getName() {
+        return this.name;
+    }
 
-	public String getProducer() {
-		return this.producer;
-	}
+    /**
+     * Modifie le nom de ce film par celui passé en paramètre.
+     * 
+     * @param name Le nouveau nom de ce film.
+     */
+    public void setName(final String name) {
+        this.name = name;
+    }
 
-	public void setProducer(String producer) {
-		this.producer = producer;
-	}
+    /**
+     * Permet d'obtenir le producteur de ce film.
+     * 
+     * @return Le producteur de ce film.
+     */
+    public String getProducer() {
+        return this.producer;
+    }
+
+    /**
+     * Modifie le producteur de ce film par celui passé en paramètre.
+     * 
+     * @param producer Le nouveau producteur de ce film.
+     */
+    public void setProducer(final String producer) {
+        this.producer = producer;
+    }
 
 }
