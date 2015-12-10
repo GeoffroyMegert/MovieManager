@@ -1,4 +1,4 @@
-package MovieManager.ch.hearc.ig.odi.moviemanager.business;
+package ch.hearc.ig.odi.moviemanager.business;
 
 import java.util.*;
 
