@@ -1,5 +1,6 @@
 package ch.hearc.ig.odi.moviemanager.business;
 
+import ch.hearc.ig.odi.moviemanager.exception.UniqueException;
 import java.util.*;
 
 /**
@@ -30,6 +31,28 @@ public class Movie {
         this.name = name;
         this.producer = producer;
         this.people = new LinkedHashMap<>();
+    }
+    
+    /**
+     * Ajoute la personne passé en paramètre à la liste des personnes ayant vues ce film.
+     * Ajoute aussi ce film à la liste des films vu par la personne passée en paramètre.
+     * 
+     * @param person La personne à ajouter à la liste des personnes ayant vues ce film.
+     * @throws UniqueException si cette personne à déjà vu ce film et est donc déjà présent dans la liste.
+     */
+    public void addPerson(final Person person) throws UniqueException {
+        if(people.containsKey(person.getId())) {
+            throw new UniqueException("Cette personne à déjà vu ce film.");
+        }
+        
+        people.put(person.getId(), person);
+        
+        try {
+            person.addMovie(this);
+        }catch(UniqueException ex) {
+            // Si cette exception se produit, cela signifie que c'est addMovie() qui a fait appelle à addPerson().
+            // Il est donc normal que cette exception se produise. Aucune conséquence pour l'application.
+        }
     }
 
     /**
