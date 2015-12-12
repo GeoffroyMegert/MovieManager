@@ -109,4 +109,12 @@ public class Movie {
         this.producer = producer;
     }
 
+    /**
+     * Permet d'obtenir le nombre de personnes ayant vues ce film.
+     * 
+     * @return Le nombre de personnes ayant vues ce film.
+     */
+    public int getPeopleNumber() {
+        return people.size();
+    }
 }

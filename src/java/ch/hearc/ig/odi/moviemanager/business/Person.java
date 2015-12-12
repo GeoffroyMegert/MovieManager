@@ -109,4 +109,12 @@ public class Person {
         this.lastName = lastName;
     }
 
+    /**
+     * Permet d'obtenir le nombre de films vus par cette personne.
+     * 
+     * @return Le nombre de films vus par cette personne.
+     */
+    public int getMoviesNumber() {
+        return movies.size();
+    }
 }
