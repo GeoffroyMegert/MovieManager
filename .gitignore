@@ -12,3 +12,5 @@
 hs_err_pid*
 /MovieManager/nbproject/private/
 /nbproject/private/
+/build/
+/dist/

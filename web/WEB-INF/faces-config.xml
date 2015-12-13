@@ -15,4 +15,27 @@
             <supported-locale>en</supported-locale>
         </locale-config>
     </application>
+    
+    <!-- Mise en place de la navigation au sein de l'application -->
+    <navigation-rule>
+        <from-view-id>/index.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{personDetailBean.getPersonToDetail(person)}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/personDetail.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{personDetailBean.getPersonToDetail(person)}</from-action>
+            <from-outcome>failure</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/personDetail.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>returnHome</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
 </faces-config>
