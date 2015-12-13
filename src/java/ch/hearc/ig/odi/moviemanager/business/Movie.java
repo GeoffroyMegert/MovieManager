@@ -117,4 +117,13 @@ public class Movie {
     public int getPeopleNumber() {
         return people.size();
     }
+    
+    /**
+     * Permet d'obtenir la liste des personnes ayant vues ce film.
+     * 
+     * @return La liste des personnes ayant vues ce film.
+     */
+    public List<Person> getPeople() {
+        return new ArrayList<>(people.values());
+    }
 }

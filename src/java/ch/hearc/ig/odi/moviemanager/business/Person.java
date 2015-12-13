@@ -117,4 +117,13 @@ public class Person {
     public int getMoviesNumber() {
         return movies.size();
     }
+    
+    /**
+     * Permet d'obtenir la liste des films vus par cette personne.
+     * 
+     * @return La liste des films vus par cette personne.
+     */
+    public List<Movie> getMovies() {
+        return new ArrayList<>(movies.values());
+    }
 }
