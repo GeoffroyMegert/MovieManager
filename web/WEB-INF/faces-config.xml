@@ -4,6 +4,7 @@
               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
               xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
     <application>
+        <!-- Ressource bundle utilisée pour l'internationalisation de l'application. -->
         <resource-bundle>
             <base-name>
                 ch.hearc.ig.odi.moviemanager.presentation.bundle.Messages
@@ -29,6 +30,16 @@
             <from-outcome>failure</from-outcome>
             <to-view-id>/index.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-action>#{movieDetailBean.getMovieToDetail(movie)}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/movieDetail.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{movieDetailBean.getMovieToDetail(movie)}</from-action>
+            <from-outcome>failure</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
     
     <navigation-rule>
@@ -36,6 +47,34 @@
         <navigation-case>
             <from-outcome>returnHome</from-outcome>
             <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{movieDetailBean.getMovieToDetail(movie)}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/movieDetail.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{movieDetailBean.getMovieToDetail(movie)}</from-action>
+            <from-outcome>failure</from-outcome>
+            <to-view-id>/personDetail.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/movieDetail.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>returnHome</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{personDetailBean.getPersonToDetail(person)}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/personDetail.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{personDetailBean.getPersonToDetail(person)}</from-action>
+            <from-outcome>failure</from-outcome>
+            <to-view-id>/movieDetail.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
 </faces-config>
