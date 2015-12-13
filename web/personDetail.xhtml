@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<!--
+    Cette page affiche le détail d'une personne.
+    Pour l'internationalisation et la navigation au sein de cette application,
+    veuillez vous référer au fichier "faces-config.xml" qui se trouve dans le dossier "WEB-INF".
+-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title><h:outputText value="#{bundle.personDetailTitle}"/></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <h1><h:outputText value="#{bundle.personDetailTitle}"/></h1>
+        
+        <h:form>
+            <!-- Le tableau ne sert qu'à la mise en page du formulaire. -->
+            <h:panelGrid border="0" columns="2">
+                <h:outputLabel for="id" value="#{bundle.personId} : "/>
+                <h:inputText id="id" value="#{personDetailBean.person.id}"/>
+                
+                <h:outputLabel for="firstname" value="#{bundle.personFirstName} : "/>
+                <h:inputText id="firstname" value="#{personDetailBean.person.firstName}"/>
+                
+                <h:outputLabel for="lastname" value="#{bundle.personLastName} : "/>
+                <h:inputText id="lastname" value="#{personDetailBean.person.lastName}"/>
+            </h:panelGrid>
+            
+            <h2><h:outputText value="#{bundle.personDetailMoviesList}"/></h2>
+            
+            <h:dataTable value="#{personDetailBean.person.movies}" var="movie">
+                <h:column>
+                    <!-- En-tête de la colonne "ID" du tableau. -->
+                    <f:facet name="header"><h:outputText value="#{bundle.movieId}"/></f:facet>
+                    <h:outputText value="#{movie.id}"/>
+                </h:column>
+                <h:column>
+                    <!-- En-tête de la colonne "Nom du film" du tableau. -->
+                    <f:facet name="header"><h:outputText value="#{bundle.movieName}"/></f:facet>
+                    <h:outputText value="#{movie.name}"/>
+                </h:column>
+                <h:column>
+                    <!-- En-tête de la colonne "Producteur" du tableau. -->
+                    <f:facet name="header"><h:outputText value="#{bundle.movieProducer}"/></f:facet>
+                    <h:outputText value="#{movie.producer}"/>
+                </h:column>
+            </h:dataTable>
+            
+            <!-- Bouton de retour à la page d'accueil (index.xhtml). -->
+            <h:commandButton id="returnHome" value="#{bundle.personDetailReturnButton}" action="returnHome"/>
+        </h:form>
+    </h:body>
+</html>
