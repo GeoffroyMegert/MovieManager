@@ -21,6 +21,12 @@ public class PersonDetailBean implements Serializable {
     /** La personne à détailler. */
     private Person person;
 
+    /**
+     * Reçoit la personne à détailler.
+     * 
+     * @param person  La personne à détailler.
+     * @return "success" si la personne a bien été reçue, sinon "failure".
+     */
     public String getPersonToDetail(final Person person) {
         if(person != null) {
             this.person = person;
