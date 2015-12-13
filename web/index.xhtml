@@ -49,7 +49,7 @@
                 <h:column>
                     <!-- En-tête de la colonne "Nom du film" du tableau. -->
                     <f:facet name="header"><h:outputText value="#{bundle.movieName}"/></f:facet>
-                    <h:outputText value="#{movie.name}"/>
+                    <h:commandLink value="#{movie.name}" action="#{movieDetailBean.getMovieToDetail(movie)}"/>
                 </h:column>
                 <h:column>
                     <!-- En-tête de la colonne "Producteur" du tableau. -->
