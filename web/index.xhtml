@@ -1,5 +1,10 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--
+    Cette page affiche la liste des personnes et des films.
+    Pour l'internationalisation et la navigation au sein de cette application,
+    veuillez vous référer au fichier "faces-config.xml" qui se trouve dans le dossier "WEB-INF".
+-->
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
@@ -18,12 +23,12 @@
             <h:column>
                 <!-- En-tête de la colonne "Prénom" du tableau. -->
                 <f:facet name="header"><h:outputText value="#{bundle.personFirstName}"/></f:facet>
-                <h:outputText value="#{person.firstName}"/>
+                <h:commandLink value="#{person.firstName}" action="#{personDetailBean.getPersonToDetail(person)}"/>
             </h:column>
             <h:column>
                 <!-- En-tête de la colonne "Nom" du tableau. -->
                 <f:facet name="header"><h:outputText value="#{bundle.personLastName}"/></f:facet>
-                <h:outputText value="#{person.lastName}"/>
+                <h:commandLink value="#{person.lastName}" action="#{personDetailBean.getPersonToDetail(person)}"/>
             </h:column>
             <h:column>
                 <!-- En-tête de la colonne "Nombre de films" du tableau. -->
