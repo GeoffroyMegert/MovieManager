@@ -10,7 +10,7 @@ import java.util.*;
  */
 public class Movie {
 
-    /** La liste des personnes ayant regardées ce film. */
+    /** La liste des personnes ayant regardé ce film. */
     private Map<Long, Person> people;
     /** L'identifiant unique du film. */
     private Long id;
@@ -34,10 +34,10 @@ public class Movie {
     }
     
     /**
-     * Ajoute la personne passé en paramètre à la liste des personnes ayant vues ce film.
-     * Ajoute aussi ce film à la liste des films vu par la personne passée en paramètre.
+     * Ajoute la personne passé en paramètre à la liste des personnes ayant vu ce film.
+     * Ajoute aussi ce film à la liste des films vus par la personne passée en paramètre.
      * 
-     * @param person La personne à ajouter à la liste des personnes ayant vues ce film.
+     * @param person La personne à ajouter à la liste des personnes ayant vu ce film.
      * @throws UniqueException si cette personne à déjà vu ce film et est donc déjà présent dans la liste.
      */
     public void addPerson(final Person person) throws UniqueException {
@@ -119,9 +119,9 @@ public class Movie {
     }
     
     /**
-     * Permet d'obtenir la liste des personnes ayant vues ce film.
+     * Permet d'obtenir la liste des personnes ayant vu ce film.
      * 
-     * @return La liste des personnes ayant vues ce film.
+     * @return La liste des personnes ayant vu ce film.
      */
     public List<Person> getPeople() {
         return new ArrayList<>(people.values());
