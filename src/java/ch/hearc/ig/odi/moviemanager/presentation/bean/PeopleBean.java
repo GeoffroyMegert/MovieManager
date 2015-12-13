@@ -2,6 +2,7 @@ package ch.hearc.ig.odi.moviemanager.presentation.bean;
 
 import ch.hearc.ig.odi.moviemanager.business.Person;
 import ch.hearc.ig.odi.moviemanager.services.Services;
+import java.io.Serializable;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.model.ArrayDataModel;
 import javax.faces.model.DataModel;
@@ -9,7 +10,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 /**
- * Cette classe est lié à la page "index.xhtml".
+ * Cette classe est liée à la page "index.xhtml".
  * Elle permet la gestion des listes de personnes.
  * 
  * @author Geoffroy Megert <geoffroy.megert@he-arc.ch>
@@ -19,7 +20,7 @@ import javax.inject.Named;
 // Cycle de vie du Backing Bean.
 // Ce Backing Bean ne manipule pas d'objet necessitant d'être mémorisé plus d'une requête.
 @RequestScoped
-public class PeopleBean {
+public class PeopleBean implements Serializable {
     
     /** La liste de personnes. */
     // Les DataModel sont des composants adaptés aux JavaServer Faces.
