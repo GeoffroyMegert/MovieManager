@@ -22,7 +22,7 @@ public class PersonDetailBean implements Serializable {
     private Person person;
 
     public String getPersonToDetail(final Person person) {
-        if(person == null) {
+        if(person != null) {
             this.person = person;
             return "success";
         } else {

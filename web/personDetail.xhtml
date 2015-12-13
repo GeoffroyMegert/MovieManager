@@ -19,13 +19,13 @@
             <!-- Le tableau ne sert qu'à la mise en page du formulaire. -->
             <h:panelGrid border="0" columns="2">
                 <h:outputLabel for="id" value="#{bundle.personId} : "/>
-                <h:inputText id="id" value="#{personDetailBean.person.id}"/>
+                <h:outputText id="id" value="#{personDetailBean.person.id}"/>
                 
                 <h:outputLabel for="firstname" value="#{bundle.personFirstName} : "/>
-                <h:inputText id="firstname" value="#{personDetailBean.person.firstName}"/>
+                <h:outputText id="firstname" value="#{personDetailBean.person.firstName}"/>
                 
                 <h:outputLabel for="lastname" value="#{bundle.personLastName} : "/>
-                <h:inputText id="lastname" value="#{personDetailBean.person.lastName}"/>
+                <h:outputText id="lastname" value="#{personDetailBean.person.lastName}"/>
             </h:panelGrid>
             
             <h2><h:outputText value="#{bundle.personDetailMoviesList}"/></h2>
@@ -47,7 +47,7 @@
                     <h:outputText value="#{movie.producer}"/>
                 </h:column>
             </h:dataTable>
-            
+            <br/>
             <!-- Bouton de retour à la page d'accueil (index.xhtml). -->
             <h:commandButton id="returnHome" value="#{bundle.personDetailReturnButton}" action="returnHome"/>
         </h:form>

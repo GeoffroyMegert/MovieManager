@@ -4,8 +4,8 @@ import ch.hearc.ig.odi.moviemanager.business.Movie;
 import ch.hearc.ig.odi.moviemanager.services.Services;
 import java.io.Serializable;
 import javax.enterprise.context.RequestScoped;
-import javax.faces.model.ArrayDataModel;
 import javax.faces.model.DataModel;
+import javax.faces.model.ListDataModel;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -37,7 +37,7 @@ public class MoviesBean implements Serializable {
      * @return La liste des films.
      */
     public DataModel<Movie> getMovies() {
-        movies = new ArrayDataModel<>();
+        movies = new ListDataModel<>();
         movies.setWrappedData(service.getMoviesList());
         
         return movies;
