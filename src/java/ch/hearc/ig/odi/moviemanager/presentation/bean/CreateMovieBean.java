@@ -1,5 +1,6 @@
 package ch.hearc.ig.odi.moviemanager.presentation.bean;
 
+import ch.hearc.ig.odi.moviemanager.exception.UniqueException;
 import ch.hearc.ig.odi.moviemanager.services.Services;
 import java.io.Serializable;
 import javax.enterprise.context.RequestScoped;
@@ -37,9 +38,10 @@ public class CreateMovieBean implements Serializable {
      * @return "success" si le film a pu être mémorisé, sinon "failure".
      */
     public String submit() {
-        if(service.saveMovie(id, name, producer) != null) {
+        try {
+            service.saveMovie(id, name, producer);
             return "success";
-        } else {
+        } catch(UniqueException ex) {
             return "failure";
         }
     }

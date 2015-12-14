@@ -1,5 +1,6 @@
 package ch.hearc.ig.odi.moviemanager.presentation.bean;
 
+import ch.hearc.ig.odi.moviemanager.exception.UniqueException;
 import ch.hearc.ig.odi.moviemanager.services.Services;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -36,9 +37,10 @@ public class CreatePersonBean {
      * @return "success" si la personne a pu être mémorisée, sinon "failure".
      */
     public String submit() {
-        if(service.savePerson(id, firstName, lastName) != null) {
+        try {
+            service.savePerson(id, firstName, lastName);
             return "success";
-        } else {
+        } catch(UniqueException ex) {
             return "failure";
         }
     }
