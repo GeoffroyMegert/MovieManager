@@ -44,6 +44,10 @@
             <from-outcome>addMovie</from-outcome>
             <to-view-id>/createMovie.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>addPerson</from-outcome>
+            <to-view-id>/createPerson.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
     
     <navigation-rule>
@@ -102,6 +106,32 @@
     
     <navigation-rule>
         <from-view-id>/createMovieOk.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>returnHome</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/createPerson.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{createPersonBean.submit()}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/createPersonOk.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{createPersonBean.submit()}</from-action>
+            <from-outcome>failure</from-outcome>
+            <to-view-id>/createPerson.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>cancel</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/createPersonOk.xhtml</from-view-id>
         <navigation-case>
             <from-outcome>returnHome</from-outcome>
             <to-view-id>/index.xhtml</to-view-id>
