@@ -15,30 +15,32 @@
     <h:body>
         <h1><h:outputText value="#{bundle.addMovieToPersonTitle}"/></h1>
 
-        <h2><h:outputText value="#{bundle.addMovieToPersonMessage}"/></h2>
+        <h2><h:outputText value="#{bundle.addMovieToPersonMessage} : #{addMovieToPersonBean.person.firstName} #{addMovieToPersonBean.person.lastName}"/></h2>
 
-        <h:dataTable value="#{addMovieToPersonBean.movies}" var="movie">
-            <h:column>
-                <!-- En-tête de la colonne "ID" du tableau. -->
-                <f:facet name="header"><h:outputText value="#{bundle.movieId}"/></f:facet>
-                <h:outputText value="#{movie.id}"/>
-            </h:column>
-            <h:column>
-                <!-- En-tête de la colonne "Nom du film" du tableau. -->
-                <f:facet name="header"><h:outputText value="#{bundle.movieName}"/></f:facet>
-                <h:commandLink value="#{movie.name}" action="#{addMovieToPersonBean.addMovie(movie)}"/>
-            </h:column>
-            <h:column>
-                <!-- En-tête de la colonne "Producteur" du tableau. -->
-                <f:facet name="header"><h:outputText value="#{bundle.movieProducer}"/></f:facet>
-                <h:outputText value="#{movie.producer}"/>
-            </h:column>
-        </h:dataTable>
-        <br/>
-        <!-- Bouton de retour au détail d'une personne. -->
-        <h:commandButton id="cancel" value="#{bundle.addMovieToPersonCancelButton}" action="cancel"/>
-        <br/><br/>
-        <!-- Bouton de retour à la page d'accueil (index.xhtml). -->
-        <h:commandButton id="returnHome" value="#{bundle.addMovieToPersonReturnButton}" action="returnHome"/>
+        <h:form>
+            <h:dataTable value="#{addMovieToPersonBean.movies}" var="movie">
+                <h:column>
+                    <!-- En-tête de la colonne "ID" du tableau. -->
+                    <f:facet name="header"><h:outputText value="#{bundle.movieId}"/></f:facet>
+                    <h:outputText value="#{movie.id}"/>
+                </h:column>
+                <h:column>
+                    <!-- En-tête de la colonne "Nom du film" du tableau. -->
+                    <f:facet name="header"><h:outputText value="#{bundle.movieName}"/></f:facet>
+                    <h:commandLink value="#{movie.name}" action="#{addMovieToPersonBean.addMovie(movie)}"/>
+                </h:column>
+                <h:column>
+                    <!-- En-tête de la colonne "Producteur" du tableau. -->
+                    <f:facet name="header"><h:outputText value="#{bundle.movieProducer}"/></f:facet>
+                    <h:outputText value="#{movie.producer}"/>
+                </h:column>
+            </h:dataTable>
+            <br/>
+            <!-- Bouton de retour au détail d'une personne. -->
+            <h:commandButton id="cancel" value="#{bundle.addMovieToPersonCancelButton}" action="#{personDetailBean.getPersonToDetail(addMovieToPersonBean.person)}"/>
+            <br/><br/>
+            <!-- Bouton de retour à la page d'accueil (index.xhtml). -->
+            <h:commandButton id="returnHome" value="#{bundle.addMovieToPersonReturnButton}" action="returnHome"/>
+        </h:form>
     </h:body>
 </html>

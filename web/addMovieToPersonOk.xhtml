@@ -18,10 +18,10 @@
         
         <h:form>
             <!-- Bouton de retour au détail d'une personne. -->
-            <h:commandButton id="returnToPerson" value="#{bundle.addMovieToPersonOkReturnToPerson}" action="#{personDetailBean.getPersonToDetail(addMovieToPersonBean.person)}"/>
+            <h:commandLink id="returnToPerson" value="#{bundle.addMovieToPersonOkReturnToPerson}" action="#{personDetailBean.getPersonToDetail(addMovieToPersonBean.person)}"/>
             <br/><br/>
             <!-- Bouton de retour à la page d'accueil (index.xhtml). -->
-            <h:commandButton id="returnHome" value="#{bundle.addMovieToPersonOkReturnHome}" action="returnHome"/>
+            <h:commandLink id="returnHome" value="#{bundle.addMovieToPersonOkReturnHome}" action="returnHome"/>
         </h:form>
     </h:body>
 </html>

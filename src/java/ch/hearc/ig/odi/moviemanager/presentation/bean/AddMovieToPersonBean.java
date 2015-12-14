@@ -77,6 +77,21 @@ public class AddMovieToPersonBean implements Serializable {
     }
     
     /**
+     * Reçoit la personne a qui on veut affecter un film.
+     * 
+     * @param person La personne a qui on veut affecter un film.
+     * @return "success" si la personne a été reçue, sinon "failure".
+     */
+    public String getPerson(final Person person) {
+        if(person != null) {
+            this.person = person;
+            return "success";
+        } else {
+            return "failure";
+        }
+    }
+    
+    /**
      * Permet d'obtenir la personne a qui on veut affecter un film.
      * 
      * @return La personne a qui on veut affecter un film.

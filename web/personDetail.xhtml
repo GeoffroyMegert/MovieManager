@@ -49,7 +49,7 @@
             </h:dataTable>
             <br/>
             <!-- Bouton d'affectation d'un film à cette personne. -->
-            <h:commandButton id="affectMovie" value="#{bundle.personDetailAffectMovie}" action="#{addMovieToPersonBean.setPerson(personDetailBean.person)}"/>
+            <h:commandButton id="affectMovie" value="#{bundle.personDetailAffectMovie}" action="#{addMovieToPersonBean.getPerson(personDetailBean.person)}"/>
             <br/><br/>
             <!-- Bouton de retour à la page d'accueil (index.xhtml). -->
             <h:commandButton id="returnHome" value="#{bundle.personDetailReturnButton}" action="returnHome"/>
