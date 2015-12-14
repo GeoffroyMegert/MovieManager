@@ -28,8 +28,6 @@ public class AddMovieToPersonBean implements Serializable {
     
     /** La personne a qui on veut affecter un film. */
     private Person person;
-    /** Le film à affecter à la personne. */
-    private Movie movie;
     /** La liste de films que la personne n'a pas encore vu. */
     // Les DataModel sont des composants adaptés aux JavaServer Faces.
     private DataModel<Movie> movies;
@@ -62,10 +60,15 @@ public class AddMovieToPersonBean implements Serializable {
     /**
      * Affecte le film à la personne.
      * 
+     * @param movie Le film à affecter à la personne.
      * @return "success" si le film a bien été affecté, sinon "failure".
      */
-    public String addMovie() {
+    public String addMovie(final Movie movie) {
         try {
+            if(movie == null) {
+                return "failure";
+            }
+            
             person.addMovie(movie);
             return "success";
         }catch(UniqueException ex) {
@@ -91,22 +94,4 @@ public class AddMovieToPersonBean implements Serializable {
         this.person = person;
     }
 
-    /**
-     * Permet d'obtenir le film à attribuer à la personne.
-     * 
-     * @return Le film à attribuer à la personne.
-     */
-    public Movie getMovie() {
-        return movie;
-    }
-
-    /**
-     * Modifie le film à attribuer à la personne par celui passé en paramètre.
-     * 
-     * @param movie Le nouveau film à attribuer à la personne.
-     */
-    public void setMovie(final Movie movie) {
-        this.movie = movie;
-    }
-    
 }

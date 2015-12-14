@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<!--
+    Cette page permet d'affecter un film à une personne.
+    Pour l'internationalisation et la navigation au sein de cette application,
+    veuillez vous référer au fichier "faces-config.xml" qui se trouve dans le dossier "WEB-INF".
+-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title><h:outputText value="#{bundle.addMovieToPersonTitle}"/></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <h1><h:outputText value="#{bundle.addMovieToPersonTitle}"/></h1>
+
+        <h2><h:outputText value="#{bundle.addMovieToPersonMessage}"/></h2>
+
+        <h:dataTable value="#{addMovieToPersonBean.movies}" var="movie">
+            <h:column>
+                <!-- En-tête de la colonne "ID" du tableau. -->
+                <f:facet name="header"><h:outputText value="#{bundle.movieId}"/></f:facet>
+                <h:outputText value="#{movie.id}"/>
+            </h:column>
+            <h:column>
+                <!-- En-tête de la colonne "Nom du film" du tableau. -->
+                <f:facet name="header"><h:outputText value="#{bundle.movieName}"/></f:facet>
+                <h:commandLink value="#{movie.name}" action="#{addMovieToPersonBean.addMovie(movie)}"/>
+            </h:column>
+            <h:column>
+                <!-- En-tête de la colonne "Producteur" du tableau. -->
+                <f:facet name="header"><h:outputText value="#{bundle.movieProducer}"/></f:facet>
+                <h:outputText value="#{movie.producer}"/>
+            </h:column>
+        </h:dataTable>
+        <br/>
+        <!-- Bouton de retour au détail d'une personne. -->
+        <h:commandButton id="cancel" value="#{bundle.addMovieToPersonCancelButton}" action="cancel"/>
+        <br/><br/>
+        <!-- Bouton de retour à la page d'accueil (index.xhtml). -->
+        <h:commandButton id="returnHome" value="#{bundle.addMovieToPersonReturnButton}" action="returnHome"/>
+    </h:body>
+</html>
