@@ -98,4 +98,20 @@ public class Services implements Serializable{
     public List<Movie> getMoviesList(){
         return new ArrayList(movies.values());
     }
+    
+    /**
+     * Ajoute un film à la liste des films.
+     * 
+     * @param id L'identifiant unique du film.
+     * @param name Le nom du film.
+     * @param producer Le producteur du film.
+     * @return Le nouveau film.
+     */
+    public Movie saveMovie(final Long id, final String name, final String producer) {
+        Movie movie = new Movie(id, name, producer);
+        movies.put(id, movie);
+        
+        return movie;
+    }
+    
 }
