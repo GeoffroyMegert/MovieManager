@@ -10,6 +10,7 @@
     <h:head>
         <title><h:outputText value="#{bundle.createMovieTitle}"/></title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" type="text/css" href="ressources/css/style.css"/>
     </h:head>
     <h:body>
         <h1><h:outputText value="#{bundle.createMovieTitle}"/></h1>
@@ -26,9 +27,12 @@
                 <h:inputText id="producer" value="#{createMovieBean.producer}" required="true" requiredMessage="#{bundle.createMovieProducerError}"/>
             </h:panelGrid>
             
+            <!-- Bouton reset. -->
             <h:commandButton id="reset" type="reset" value="#{bundle.createMovieResetButton}"/>
+            <!-- Bouton de soumission du formulaire. -->
             <h:commandButton id="submit" type="submit" value="#{bundle.createMovieSubmitButton}" action="#{createMovieBean.submit()}"/>
             <br/>
+            <!-- Bouton de retour à la page d'accueil (index.xhtml). -->
             <h:commandButton id="cancel" value="#{bundle.createMovieCancelButton}" action="cancel" immediate="true"/>
             <!-- Affiche les messages d'erreurs. -->
             <h:messages styleClass="erreur" showSummary="true" showDetail="false"/>
