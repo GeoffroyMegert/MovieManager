@@ -16,7 +16,9 @@
         
         <p><h:outputText value="#{bundle.createPersonOkMessage}"/></p>
         
-        <!-- Bouton de retour à la page d'accueil (index.xhtml). -->
-        <h:commandLink value="#{bundle.createPersonOkReturnHome}" action="returnHome"/>
+        <h:form>
+            <!-- Bouton de retour à la page d'accueil (index.xhtml). -->
+            <h:commandLink value="#{bundle.createPersonOkReturnHome}" action="returnHome"/>
+        </h:form>
     </body>
 </html>

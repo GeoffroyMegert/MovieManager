@@ -16,7 +16,9 @@
         
         <p><h:outputText value="#{bundle.createMovieOkMessage}"/></p>
         
-        <!-- Bouton de retour à la page d'accueil (index.xhtml). -->
-        <h:commandLink value="#{bundle.createMovieOkReturnHome}" action="returnHome"/>
+        <h:form>
+            <!-- Bouton de retour à la page d'accueil (index.xhtml). -->
+            <h:commandLink value="#{bundle.createMovieOkReturnHome}" action="returnHome"/>
+        </h:form>
     </h:body>
 </html>
