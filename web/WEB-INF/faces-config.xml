@@ -19,6 +19,14 @@
     
     <!-- Mise en place de la navigation au sein de l'application -->
     <navigation-rule>
+        <from-view-id>/*.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>returnHome</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
         <from-view-id>/index.xhtml</from-view-id>
         <navigation-case>
             <from-action>#{personDetailBean.getPersonToDetail(person)}</from-action>
@@ -63,6 +71,16 @@
         </navigation-case>
         <navigation-case>
             <from-action>#{movieDetailBean.getMovieToDetail(movie)}</from-action>
+            <from-outcome>failure</from-outcome>
+            <to-view-id>/personDetail.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{addMovieToPersonBean.getPerson(personDetailBean.person)}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/addMovieToPerson.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{addMovieToPersonBean.getPerson(personDetailBean.person)}</from-action>
             <from-outcome>failure</from-outcome>
             <to-view-id>/personDetail.xhtml</to-view-id>
         </navigation-case>
@@ -132,6 +150,52 @@
     
     <navigation-rule>
         <from-view-id>/createPersonOk.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>returnHome</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/addMovieToPerson.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{addMovieToPersonBean.addMovie(movie)}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/addMovieToPersonOk.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{addMovieToPersonBean.addMovie(movie)}</from-action>
+            <from-outcome>failure</from-outcome>
+            <to-view-id>/addMovieToPerson.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{personDetailBean.getPersonToDetail(addMovieToPersonBean.person)}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/personDetail.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{personDetailBean.getPersonToDetail(addMovieToPersonBean.person)}</from-action>
+            <from-outcome>failure</from-outcome>
+            <to-view-id>/addMovieToPerson.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>returnHome</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/addMovieToPersonOk.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{personDetailBean.getPersonToDetail(addMovieToPersonBean.person)}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/personDetail.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{personDetailBean.getPersonToDetail(addMovieToPersonBean.person)}</from-action>
+            <from-outcome>failure</from-outcome>
+            <to-view-id>/addMovieToPersonOk.xhtml</to-view-id>
+        </navigation-case>
         <navigation-case>
             <from-outcome>returnHome</from-outcome>
             <to-view-id>/index.xhtml</to-view-id>
