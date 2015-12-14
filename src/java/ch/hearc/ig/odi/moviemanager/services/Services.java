@@ -106,8 +106,13 @@ public class Services implements Serializable{
      * @param name Le nom du film.
      * @param producer Le producteur du film.
      * @return Le nouveau film.
+     * @throws UniqueException si l'identifiant reçu est déjà attribué à un film.
      */
-    public Movie saveMovie(final Long id, final String name, final String producer) {
+    public Movie saveMovie(final Long id, final String name, final String producer) throws UniqueException {
+        if(movies.containsKey(id)) {
+            throw new UniqueException("Cet ID est déjà attribué à un autre film.");
+        }
+        
         Movie movie = new Movie(id, name, producer);
         movies.put(id, movie);
         
@@ -121,8 +126,13 @@ public class Services implements Serializable{
      * @param firstName Le prénom de la personne.
      * @param lastName Le nom de la personne.
      * @return La nouvelle personne.
+     * @throws UniqueException si l'identifiant reçu est déjà attribué à une personne.
      */
-    public Person savePerson(final Long id, final String firstName, final String lastName) {
+    public Person savePerson(final Long id, final String firstName, final String lastName) throws UniqueException {
+        if(people.containsKey(id)) {
+            throw new UniqueException("Cet ID est déjà attribué à une autre personne.");
+        }
+        
         Person person = new Person(id, firstName, lastName);
         people.put(id, person);
         
