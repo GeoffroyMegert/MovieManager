@@ -1,0 +1,9 @@
+/* 
+    Created on : Dec 14, 2015, 9:54:33 AM
+    Author     : Geoffroy Megert <geoffroy.megert@he-arc.ch>
+*/
+
+// Colore les messages d'erreurs en rouge.
+ul.erreur {
+    color : red;
+}
