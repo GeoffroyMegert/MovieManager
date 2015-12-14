@@ -37,6 +37,9 @@
                     <h:outputText value="#{person.moviesNumber}"/>
                 </h:column>
             </h:dataTable>
+            
+            <!-- Bouton d'ajout d'une nouvelle personne. -->
+            <h:commandButton value="#{bundle.personAddButton}" action="addPerson"/>
 
             <h1><h:outputText value="#{bundle.moviesList}"/></h1>
 
@@ -62,6 +65,7 @@
                     <h:outputText value="#{movie.peopleNumber}"/>
                 </h:column>
             </h:dataTable>
+            
             <!-- Bouton d'ajout d'un nouveau film. -->
             <h:commandButton value="#{bundle.movieAddButton}" action="addMovie"/>
         </h:form>
