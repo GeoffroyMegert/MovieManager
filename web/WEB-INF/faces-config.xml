@@ -40,6 +40,10 @@
             <from-outcome>failure</from-outcome>
             <to-view-id>/index.xhtml</to-view-id>
         </navigation-case>
+        <navigation-case>
+            <from-outcome>addMovie</from-outcome>
+            <to-view-id>/createMovie.xhtml</to-view-id>
+        </navigation-case>
     </navigation-rule>
     
     <navigation-rule>
@@ -75,6 +79,32 @@
             <from-action>#{personDetailBean.getPersonToDetail(person)}</from-action>
             <from-outcome>failure</from-outcome>
             <to-view-id>/movieDetail.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/createMovie.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{createMovieBean.submit()}</from-action>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/createMovieOk.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{createMovieBean.submit()}</from-action>
+            <from-outcome>failure</from-outcome>
+            <to-view-id>/createMovie.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>cancel</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/createMovieOk.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>returnHome</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
 </faces-config>
