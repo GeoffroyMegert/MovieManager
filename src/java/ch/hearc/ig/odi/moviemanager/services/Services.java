@@ -114,4 +114,18 @@ public class Services implements Serializable{
         return movie;
     }
     
+    /**
+     * Ajoute une personne à la liste des personnes.
+     * 
+     * @param id L'identifiant unique de la personne.
+     * @param firstName Le prénom de la personne.
+     * @param lastName Le nom de la personne.
+     * @return La nouvelle personne.
+     */
+    public Person savePerson(final Long id, final String firstName, final String lastName) {
+        Person person = new Person(id, firstName, lastName);
+        people.put(id, person);
+        
+        return person;
+    }
 }
