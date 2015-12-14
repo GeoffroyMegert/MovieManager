@@ -10,8 +10,8 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 /**
- * Cette classe est liée à la page "index.xhtml".
- * Elle permet la gestion des listes de personnes.
+ * Ce Backing Bean est lié à la page "index.xhtml".
+ * Il permet la gestion des listes de personnes.
  * 
  * @author Geoffroy Megert <geoffroy.megert@he-arc.ch>
  */

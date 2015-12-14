@@ -6,8 +6,8 @@ import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 
 /**
- * Cette classe est liée à la page "personDetail.xhtml".
- * Elle permet la gestion de l'affichage du détail d'un client.
+ * Ce Backing Bean est lié à la page "personDetail.xhtml".
+ * Il permet la gestion de l'affichage du détail d'un client.
  * 
  * @author Geoffroy Megert
  */
