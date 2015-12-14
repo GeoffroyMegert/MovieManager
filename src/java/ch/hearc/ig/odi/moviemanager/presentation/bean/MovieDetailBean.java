@@ -9,7 +9,7 @@ import javax.inject.Named;
  * Ce Backing Bean est lié à la page "personDetail.xhtml".
  * Il permet la gestion de l'affichage du détail d'un client.
  * 
- * @author Geoffroy Megert
+ * @author Geoffroy Megert <geoffroy.megert@he-arc.ch>
  */
 // Le nom employé sur les pages xhtml pour faire appel à ce Backing Bean.
 @Named(value = "movieDetailBean")
