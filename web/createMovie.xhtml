@@ -18,13 +18,13 @@
         <h:form>
             <h:panelGrid border="0" columns="2">
                 <h:outputLabel for="id" value="#{bundle.movieId} : "/>
-                <h:inputText id="id" value="#{createMovieBean.id}" required="true" requiredMessage="#{bundle.createMovieIdError}"/>
+                <h:inputText id="id" value="#{createMovieBean.id}" requiredMessage="#{bundle.createMovieIdError}"/>
                 
                 <h:outputLabel for="name" value="#{bundle.movieName} : "/>
-                <h:inputText id="name" value="#{createMovieBean.name}" required="true" requiredMessage="#{bundle.createMovieNameError}"/>
+                <h:inputText id="name" value="#{createMovieBean.name}" requiredMessage="#{bundle.createMovieNameError}"/>
                 
                 <h:outputLabel for="producer" value="#{bundle.movieProducer} : "/>
-                <h:inputText id="producer" value="#{createMovieBean.producer}" required="true" requiredMessage="#{bundle.createMovieProducerError}"/>
+                <h:inputText id="producer" value="#{createMovieBean.producer}" requiredMessage="#{bundle.createMovieProducerError}"/>
             </h:panelGrid>
             
             <!-- Bouton reset. -->

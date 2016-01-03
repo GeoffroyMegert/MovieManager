@@ -5,6 +5,8 @@ import ch.hearc.ig.odi.moviemanager.services.Services;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 /**
  * Ce Backing Bean est lié à la page "createPerson.xhtml".
@@ -20,10 +22,14 @@ import javax.inject.Named;
 public class CreatePersonBean {
     
     /** L'identifiant unique de la nouvelle personne. */
+    @NotNull
+    @Min(0)
     private Long id;
     /** Le prénom de la nouvelle personne. */
+    @NotNull
     private String firstName;
     /** Le nom de la nouvelle personne. */
+    @NotNull
     private String lastName;
     
     /** Services mise à disposition des programmeurs. */

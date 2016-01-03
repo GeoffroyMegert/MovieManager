@@ -6,6 +6,8 @@ import java.io.Serializable;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 /**
  * Ce Backing Bean est lié à la page "createMovie.xhtml".
@@ -21,10 +23,14 @@ import javax.inject.Named;
 public class CreateMovieBean implements Serializable {
     
     /** L'identifiant unique du nouveau film. */
+    @NotNull
+    @Min(0)
     private Long id;
     /** Le nom du nouveau film. */
+    @NotNull
     private String name;
     /** Le producteur du nouveau film. */
+    @NotNull
     private String producer;
     
     /** Services mise à disposition des programmeurs. */

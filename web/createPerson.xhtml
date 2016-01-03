@@ -18,13 +18,13 @@
         <h:form>
             <h:panelGrid border="0" columns="2">
                 <h:outputLabel for="id" value="#{bundle.personId} : "/>
-                <h:inputText id="id" value="#{createPersonBean.id}" required="true" requiredMessage="#{bundle.createPersonIdError}"/>
+                <h:inputText id="id" value="#{createPersonBean.id}" requiredMessage="#{bundle.createPersonIdError}"/>
                 
                 <h:outputLabel for="firstname" value="#{bundle.personFirstName} : "/>
-                <h:inputText id="firstname" value="#{createPersonBean.firstName}" required="true" requiredMessage="#{bundle.createPersonFirstNameError}"/>
+                <h:inputText id="firstname" value="#{createPersonBean.firstName}" requiredMessage="#{bundle.createPersonFirstNameError}"/>
                 
                 <h:outputLabel for="lastname" value="#{bundle.personLastName} : "/>
-                <h:inputText id="lastname" value="#{createPersonBean.lastName}" required="true" requiredMessage="#{bundle.createPersonLastNameError}"/>
+                <h:inputText id="lastname" value="#{createPersonBean.lastName}" requiredMessage="#{bundle.createPersonLastNameError}"/>
             </h:panelGrid>
             
             <!-- Bouton reset. -->
