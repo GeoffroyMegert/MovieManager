@@ -6,36 +6,41 @@
     veuillez vous référer au fichier "faces-config.xml" qui se trouve dans le dossier "WEB-INF".
 -->
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
         <title><h:outputText value="#{bundle.createMovieTitle}"/></title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link rel="stylesheet" type="text/css" href="ressources/css/style.css"/>
     </h:head>
     <h:body>
-        <h1><h:outputText value="#{bundle.createMovieTitle}"/></h1>
-        
-        <h:form>
-            <h:panelGrid border="0" columns="2">
-                <h:outputLabel for="id" value="#{bundle.movieId} : "/>
-                <h:inputText id="id" value="#{createMovieBean.id}" requiredMessage="#{bundle.createMovieIdError}"/>
-                
-                <h:outputLabel for="name" value="#{bundle.movieName} : "/>
-                <h:inputText id="name" value="#{createMovieBean.name}" requiredMessage="#{bundle.createMovieNameError}"/>
-                
-                <h:outputLabel for="producer" value="#{bundle.movieProducer} : "/>
-                <h:inputText id="producer" value="#{createMovieBean.producer}" requiredMessage="#{bundle.createMovieProducerError}"/>
-            </h:panelGrid>
-            
-            <!-- Bouton reset. -->
-            <h:commandButton id="reset" type="reset" value="#{bundle.createMovieResetButton}"/>
-            <!-- Bouton de soumission du formulaire. -->
-            <h:commandButton id="submit" type="submit" value="#{bundle.createMovieSubmitButton}" action="#{createMovieBean.submit()}"/>
-            <br/><br/>
-            <!-- Bouton de retour à la page d'accueil (index.xhtml). -->
-            <h:commandButton id="cancel" value="#{bundle.createMovieCancelButton}" action="cancel" immediate="true"/>
-            <!-- Affiche les messages d'erreurs. -->
-            <h:messages styleClass="erreur" showSummary="true" showDetail="false"/>
-        </h:form>
+        <ui:composition template="/templates/template1zone.xhtml">
+            <ui:define name="top"><h1><h:outputText value="#{bundle.createMovieTitle}"/></h1></ui:define>
+
+            <ui:define name="content">
+                <h:form>
+                    <h:panelGrid border="0" columns="2">
+                        <h:outputLabel for="id" value="#{bundle.movieId} : "/>
+                        <h:inputText id="id" value="#{createMovieBean.id}" requiredMessage="#{bundle.createMovieIdError}"/>
+
+                        <h:outputLabel for="name" value="#{bundle.movieName} : "/>
+                        <h:inputText id="name" value="#{createMovieBean.name}" requiredMessage="#{bundle.createMovieNameError}"/>
+
+                        <h:outputLabel for="producer" value="#{bundle.movieProducer} : "/>
+                        <h:inputText id="producer" value="#{createMovieBean.producer}" requiredMessage="#{bundle.createMovieProducerError}"/>
+                    </h:panelGrid>
+
+                    <!-- Bouton reset. -->
+                    <h:commandButton id="reset" type="reset" value="#{bundle.createMovieResetButton}"/>
+                    <!-- Bouton de soumission du formulaire. -->
+                    <h:commandButton id="submit" type="submit" value="#{bundle.createMovieSubmitButton}" action="#{createMovieBean.submit()}"/>
+                    <br/><br/>
+                    <!-- Bouton de retour à la page d'accueil (index.xhtml). -->
+                    <h:commandButton id="cancel" value="#{bundle.createMovieCancelButton}" action="cancel" immediate="true"/>
+                    <!-- Affiche les messages d'erreurs. -->
+                    <h:messages styleClass="erreur" showSummary="true" showDetail="false"/>
+                </h:form>
+            </ui:define>
+        </ui:composition>
     </h:body>
 </html>

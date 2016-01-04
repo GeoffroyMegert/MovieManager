@@ -6,19 +6,24 @@
     veuillez vous référer au fichier "faces-config.xml" qui se trouve dans le dossier "WEB-INF".
 -->
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
         <title><h:outputText value="#{bundle.createMovieOkSuccess}"/></title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </h:head>
     <h:body>
-        <h1><h:outputText value="#{bundle.createMovieOkSuccess}"/></h1>
-        
-        <p><h:outputText value="#{bundle.createMovieOkMessage}"/></p>
-        
-        <h:form>
-            <!-- Bouton de retour à la page d'accueil (index.xhtml). -->
-            <h:commandLink value="#{bundle.createMovieOkReturnHome}" action="returnHome"/>
-        </h:form>
+        <ui:composition template="/templates/template1zone.xhtml">
+            <ui:define name="top"><h1><h:outputText value="#{bundle.createMovieOkSuccess}"/></h1></ui:define>
+
+            <ui:define name="content">
+                <p><h:outputText value="#{bundle.createMovieOkMessage}"/></p>
+
+                <h:form>
+                    <!-- Bouton de retour à la page d'accueil (index.xhtml). -->
+                    <h:commandLink value="#{bundle.createMovieOkReturnHome}" action="returnHome"/>
+                </h:form>
+            </ui:define>
+        </ui:composition>
     </h:body>
 </html>
