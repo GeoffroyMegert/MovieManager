@@ -7,68 +7,77 @@
 -->
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
         <title><h:outputText value="#{bundle.indexTitle}"/></title>
     </h:head>
     <h:body>
-        <h1><h:outputText value="#{bundle.peopleList}"/></h1>
-        
-        <h:form>
-            <h:dataTable value="#{peopleBean.people}" var="person">
-                <h:column>
-                    <!-- En-tête de la colonne "ID" du tableau. -->
-                    <f:facet name="header"><h:outputText value="#{bundle.personId}"/></f:facet>
-                    <h:outputText value="#{person.id}"/>
-                </h:column>
-                <h:column>
-                    <!-- En-tête de la colonne "Prénom" du tableau. -->
-                    <f:facet name="header"><h:outputText value="#{bundle.personFirstName}"/></f:facet>
-                    <h:commandLink value="#{person.firstName}" action="#{personDetailBean.getPersonToDetail(person)}"/>
-                </h:column>
-                <h:column>
-                    <!-- En-tête de la colonne "Nom" du tableau. -->
-                    <f:facet name="header"><h:outputText value="#{bundle.personLastName}"/></f:facet>
-                    <h:commandLink value="#{person.lastName}" action="#{personDetailBean.getPersonToDetail(person)}"/>
-                </h:column>
-                <h:column>
-                    <!-- En-tête de la colonne "Nombre de films" du tableau. -->
-                    <f:facet name="header"><h:outputText value="#{bundle.personMoviesNumber}"/></f:facet>
-                    <h:outputText value="#{person.moviesNumber}"/>
-                </h:column>
-            </h:dataTable>
-            <br/>
-            <!-- Bouton d'ajout d'une nouvelle personne. -->
-            <h:commandButton value="#{bundle.personAddButton}" action="addPerson"/>
+        <ui:composition template="/templates/template2zones.xhtml">
+            <ui:define name="top_1"><h1><h:outputText value="#{bundle.peopleList}"/></h1></ui:define>
 
-            <h1><h:outputText value="#{bundle.moviesList}"/></h1>
+            <ui:define name="content_1">
+                <h:form>
+                    <h:dataTable value="#{peopleBean.people}" var="person">
+                        <h:column>
+                            <!-- En-tête de la colonne "ID" du tableau. -->
+                            <f:facet name="header"><h:outputText value="#{bundle.personId}"/></f:facet>
+                            <h:outputText value="#{person.id}"/>
+                        </h:column>
+                        <h:column>
+                            <!-- En-tête de la colonne "Prénom" du tableau. -->
+                            <f:facet name="header"><h:outputText value="#{bundle.personFirstName}"/></f:facet>
+                            <h:commandLink value="#{person.firstName}" action="#{personDetailBean.getPersonToDetail(person)}"/>
+                        </h:column>
+                        <h:column>
+                            <!-- En-tête de la colonne "Nom" du tableau. -->
+                            <f:facet name="header"><h:outputText value="#{bundle.personLastName}"/></f:facet>
+                            <h:commandLink value="#{person.lastName}" action="#{personDetailBean.getPersonToDetail(person)}"/>
+                        </h:column>
+                        <h:column>
+                            <!-- En-tête de la colonne "Nombre de films" du tableau. -->
+                            <f:facet name="header"><h:outputText value="#{bundle.personMoviesNumber}"/></f:facet>
+                            <h:outputText value="#{person.moviesNumber}"/>
+                        </h:column>
+                    </h:dataTable>
+                    <br/>
+                    <!-- Bouton d'ajout d'une nouvelle personne. -->
+                    <h:commandButton value="#{bundle.personAddButton}" action="addPerson"/>
+                </h:form>
+            </ui:define>
 
-            <h:dataTable value="#{moviesBean.movies}" var="movie">
-                <h:column>
-                    <!-- En-tête de la colonne "ID" du tableau. -->
-                    <f:facet name="header"><h:outputText value="#{bundle.movieId}"/></f:facet>
-                    <h:outputText value="#{movie.id}"/>
-                </h:column>
-                <h:column>
-                    <!-- En-tête de la colonne "Nom du film" du tableau. -->
-                    <f:facet name="header"><h:outputText value="#{bundle.movieName}"/></f:facet>
-                    <h:commandLink value="#{movie.name}" action="#{movieDetailBean.getMovieToDetail(movie)}"/>
-                </h:column>
-                <h:column>
-                    <!-- En-tête de la colonne "Producteur" du tableau. -->
-                    <f:facet name="header"><h:outputText value="#{bundle.movieProducer}"/></f:facet>
-                    <h:outputText value="#{movie.producer}"/>
-                </h:column>
-                <h:column>
-                    <!-- En-tête de la colonne "Nombre de personnes" du tableau. -->
-                    <f:facet name="header"><h:outputText value="#{bundle.moviePeopleNumber}"/></f:facet>
-                    <h:outputText value="#{movie.peopleNumber}"/>
-                </h:column>
-            </h:dataTable>
-            <br/>
-            <!-- Bouton d'ajout d'un nouveau film. -->
-            <h:commandButton value="#{bundle.movieAddButton}" action="addMovie"/>
-        </h:form>
+            <ui:define name="top_2"><h1><h:outputText value="#{bundle.moviesList}"/></h1></ui:define>
+
+            <ui:define name="content_2">
+                <h:form>
+                    <h:dataTable value="#{moviesBean.movies}" var="movie">
+                        <h:column>
+                            <!-- En-tête de la colonne "ID" du tableau. -->
+                            <f:facet name="header"><h:outputText value="#{bundle.movieId}"/></f:facet>
+                            <h:outputText value="#{movie.id}"/>
+                        </h:column>
+                        <h:column>
+                            <!-- En-tête de la colonne "Nom du film" du tableau. -->
+                            <f:facet name="header"><h:outputText value="#{bundle.movieName}"/></f:facet>
+                            <h:commandLink value="#{movie.name}" action="#{movieDetailBean.getMovieToDetail(movie)}"/>
+                        </h:column>
+                        <h:column>
+                            <!-- En-tête de la colonne "Producteur" du tableau. -->
+                            <f:facet name="header"><h:outputText value="#{bundle.movieProducer}"/></f:facet>
+                            <h:outputText value="#{movie.producer}"/>
+                        </h:column>
+                        <h:column>
+                            <!-- En-tête de la colonne "Nombre de personnes" du tableau. -->
+                            <f:facet name="header"><h:outputText value="#{bundle.moviePeopleNumber}"/></f:facet>
+                            <h:outputText value="#{movie.peopleNumber}"/>
+                        </h:column>
+                    </h:dataTable>
+                    <br/>
+                    <!-- Bouton d'ajout d'un nouveau film. -->
+                    <h:commandButton value="#{bundle.movieAddButton}" action="addMovie"/>
+                </h:form>
+            </ui:define>
+        </ui:composition>
     </h:body>
 </html>
 
